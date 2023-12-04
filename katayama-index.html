@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>素数判定と統計</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.pixabay.com/photo/2020/09/23/03/54/background-5594879_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>素数判定と統計</h1>
+    </header>
+
+    <main>
+        <form id="primeForm">
+            <label for="numberInput">数字を入力:</label>
+            <input type="number" id="numberInput" required>
+            <button type="button" onclick="checkPrime()">素数判定</button>
+        </form>
+
+        <div id="result"></div>
+
+        <hr>
+
+        <h2>素数判定クイズ</h2>
+        <p>次の数が素数かどうかを判定してください。</p>
+        <div id="quiz"></div>
+
+        <hr>
+
+        <h2>統計情報</h2>
+        <div id="statistics"></div>
+    </main>
+
+    <script>
+        function checkPrime() {
+            var number = document.getElementById('numberInput').value;
+            var resultElement = document.getElementById('result');
+            var statisticsElement = document.getElementById('statistics');
+
+            // 素数判定
+            var isPrime = true;
+            for (var i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            // 統計情報
+            var statistics = {
+                primeCount: 0,
+                nonPrimeCount: 0
+            };
+
+            // 統計情報更新
+            if (isPrime) {
+                statistics.primeCount++;
+            } else {
+                statistics.nonPrimeCount++;
+            }
+
+            // 結果表示
+            resultElement.innerHTML = isPrime ? number + ' は素数です。' : number + ' は素数ではありません。近い素数: ' + findClosestPrime(number);
+            statisticsElement.innerHTML = '素数の数: ' + statistics.primeCount + '<br>非素数の数: ' + statistics.nonPrimeCount;
+        }
+
+        function findClosestPrime(number) {
+            var closestPrime = number;
+            while (true) {
+                closestPrime++;
+                var isPrime = true;
+                for (var i = 2; i < closestPrime; i++) {
+                    if (closestPrime % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    return closestPrime;
+                }
+            }
+        }
+
+        // ページ読み込み時に素数判定クイズを表示
+        window.onload = function () {
+            var quizElement = document.getElementById('quiz');
+            var randomQuizNumber = Math.floor(Math.random() * 100) + 1; // 1から100までのランダムな数
+            quizElement.innerHTML = randomQuizNumber;
+        };
+    </script>
+
+</body>
+</html>
