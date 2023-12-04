@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>素数判定と最も近い素数&素数クイズ</title>
+</head>
+<body>
+    <h1>素数判定と最も近い素数</h1>
+    <p>整数を入力してください:</p>
+    <input type="number" id="numberInput">
+    <button onclick="checkPrimeAndFindClosestPrime()">判定</button>
+    <p id="result"></p>
+
+    <script>
+        function isPrime(n) {
+            if (n <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function findClosestPrime(n) {
+            if (isPrime(n)) {
+                return n; // 入力が素数の場合、そのまま返す
+            }
+
+            let smaller = n - 1;
+            let larger = n + 1;
+
+            while (true) {
+                if (isPrime(smaller)) {
+                    return smaller;
+                } else if (isPrime(larger)) {
+                    return larger;
+                }
+                smaller--;
+                larger++;
+            }
+        }
+
+        function checkPrimeAndFindClosestPrime() {
+            var number = parseInt(document.getElementById("numberInput").value);
+            var resultElement = document.getElementById("result");
+
+            if (isPrime(number)) {
+                resultElement.textContent = number + " は素数です。";
+            } else {
+                var closestPrime = findClosestPrime(number);
+                resultElement.textContent = number + " は素数ではないですが、最も近い素数は " + closestPrime + " です。";
+            }
+        }
+    </script>
+</body>
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // 素数かどうかを判定する関数
+    function isPrime(num) {
+      if (num <= 1) {
+        return false;
+      }
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    // クイズを生成する関数
+    function generateQuiz() {
+      const randomNumber = Math.floor(Math.random() * 100) + 1; // 1から100までの乱数を生成
+      const isNumberPrime = isPrime(randomNumber); // 生成した乱数が素数かどうかを判定
+
+      const question = document.getElementById('question');
+      const result = document.getElementById('result');
+
+      question.textContent = `次の数は素数ですか？ ${randomNumber}`;
+      result.textContent = ''; // 判定結果をクリア
+
+      // ユーザーの回答をチェック
+      document.getElementById('checkButton').addEventListener('click', function() {
+        const userAnswer = document.getElementById('userAnswer').value;
+        if ((userAnswer === 'はい' && isNumberPrime) || (userAnswer === 'いいえ' && !isNumberPrime)) {
+          result.textContent = '正解です！';
+        } else {
+          result.textContent = '不正解です。';
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>素数クイズ</h1>
+  <p id="question"></p>
+  <p>素数ですか？</p>
+  <input type="text" id="userAnswer" placeholder="はい / いいえ">
+  <button id="checkButton">チェック</button>
+  <p id="result"></p>
+
+  <script>
+    generateQuiz(); // 最初のクイズを生成
+  </script>
+</body>
+</html>
