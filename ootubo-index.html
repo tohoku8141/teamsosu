@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Toolkit</title>
+    <script>
+        function isPrime(n) {
+            if (n <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) return false;
+            }
+            return true;
+        }
+
+        function findNearestPrime(inputNumber) {
+            let lowerPrime = inputNumber;
+            let upperPrime = inputNumber;
+            while (true) {
+                if (isPrime(lowerPrime)) return lowerPrime;
+                if (isPrime(upperPrime)) return upperPrime;
+                lowerPrime--;
+                upperPrime++;
+            }
+        }
+
+        function generateRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function startQuiz() {
+            const randomNumber = generateRandomNumber(1, 1000);
+            const isRandomNumberPrime = isPrime(randomNumber);
+
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('quizNumber').textContent = `Is ${randomNumber} a prime number?`;
+            document.getElementById('quizResult').textContent = '';
+            document.getElementById('answerForm').style.display = 'block';
+
+            document.getElementById('submitButton').onclick = function () {
+                const userAnswer = document.querySelector('input[name="answer"]:checked').value;
+                const resultMessage = isRandomNumberPrime === (userAnswer === 'true') ?
+                    'Correct! Well done.' : `Oops! ${randomNumber} is ${isRandomNumberPrime ? '' : 'not '}a prime number.`;
+
+                document.getElementById('quizResult').textContent = resultMessage;
+                document.getElementById('answerForm').style.display = 'none';
+            };
+        }
+
+        function checkAndDisplay() {
+            const userInput = document.getElementById('userInput').value;
+            const inputNumber = parseInt(userInput);
+
+            if (isNaN(inputNumber)) {
+                alert('Please enter a valid integer.');
+            } else {
+                const isInputPrime = isPrime(inputNumber);
+                const nearestPrime = findNearestPrime(inputNumber);
+                const primeList = generatePrimeList(inputNumber);
+
+                let resultMessage = '';
+                if (isInputPrime) {
+                    resultMessage = `${inputNumber} is a prime number!`;
+                } else {
+                    resultMessage = `The nearest prime to ${inputNumber} is ${nearestPrime}.`;
+                }
+
+                resultMessage += `<br>Prime numbers up to ${inputNumber}: ${primeList.join(', ')}`;
+
+                document.getElementById('result').innerHTML = resultMessage;
+            }
+        }
+
+        function generatePrimeList(limit) {
+            const primeList = [];
+            for (let i = 2; i <= limit; i++) {
+                if (isPrime(i)) {
+                    primeList.push(i);
+                }
+            }
+            return primeList;
+        }
+    </script>
+</head>
+<body>
+    <h1>Prime Number Toolkit</h1>
+    <label for="userInput">Enter an integer: </label>
+    <input type="text" id="userInput" />
+    <button onclick="checkAndDisplay()">Check</button>
+    <p id="result"></p>
+
+    <div id="quizContainer" style="display:none;">
+        <p id="quizNumber"></p>
+        <form id="answerForm">
+            <label>
+                <input type="radio" name="answer" value="true" required> Prime
+            </label>
+            <label>
+                <input type="radio" name="answer" value="false" required> Not Prime
+            </label>
+            <br>
+            <button type="button" id="submitButton">Submit</button>
+        </form>
+        <p id="quizResult"></p>
+    </div>
+
+    <button onclick="startQuiz()">Start Quiz</button>
+</body>
+</html>
