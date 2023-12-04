@@ -21,7 +21,7 @@ function startGame() {
   document.getElementById('startButton').style.display = 'none';
   document.getElementById('elapsedTime').style.display = 'block';
   document.getElementById('progress').style.width = '0%';
-  document.getElementById('progressText').innerText = '0/30';
+  document.getElementById('progressText').innerText = '0/20';
   displayRandomNumber(upperLimit);
   startElapsedTime();
 }
