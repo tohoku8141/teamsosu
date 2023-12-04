@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Prime Number Challenge</title>
+  <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+<div class="navigation">
+  <div class="icon">
+    <img src="img/icon.png">
+  </div>
+  <!-- ナビゲーションリンクのセット -->
+  <a href="index.html">HOME</a>
+  <a href="index2.html">TEST BOT</a>
+  <a href="index3.html">TEST RTA</a>
+  <a href="ページ3のURL">MARATHON</a>
+  <!-- 必要に応じて他のページへのリンクを追加 -->
+</div>
+<div class="container">
+  <h1>素数判定RTA</h1>
+  <p class="additional-text">今日からあなたも素数判定BOT。</p>
+  <div id="startScreen">
+    <input type="range" id="limitRange" min="100" max="1000" step="100" value="300" oninput="updateSelectedLimit(this.value)">
+    <p id="selectedLimit">乱数の上限: 300</p>
+    <button id="startButton" onclick="startGame()">Start</button>
+  </div>
+  <p id="elapsedTime" style="display: none;"><span id="time"></span></p>
+  <div id="gameArea" style="display: none;">
+    <p id="randomNumber" class="random-number"></p>
+    <button onclick="checkIfPrime(true)">素数</button>
+    <button onclick="checkIfPrime(false)">合成数</button>
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+    <p id="progressText" class="progress-text">0/20</p>
+  </div>
+  <div id="endGameMessage" style="display: none;">
+    <p id="endGameText"></p>
+    <button onclick="resetGame()">Exit</button>
+  </div>
+</div>
+<script src="script3.js"></script>
+</body>
+</html>

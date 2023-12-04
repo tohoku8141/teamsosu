@@ -1,0 +1,124 @@
+body {
+  background-image: url('img/background.png');
+  background-size: cover; /* 画像をカバーするように拡大・縮小 */
+  background-repeat: no-repeat; /* 繰り返しを無効に */
+  background-position: center top; /* 画像を中央に配置 */
+  margin: 0; /* デフォルトのマージンを削除 */
+  padding: 0;
+  font-family:超極細ゴシック,'Arial';
+  font-size:24px;
+  line-height: 1;
+  color: white;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgba(0, 0, 0, 0.6);
+  padding: 30px 150px;
+  max-width: 100%; /* バナーの最大幅を設定 */
+  margin: 0 auto; /* 中央揃え */ 
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 16px 30px;
+  font-size: 25px;
+}
+.navigation a:hover {
+  color: #aaaaff;
+  font-weight: bold;
+}
+.icon {
+  margin-right: 50px; /* アイコンとナビゲーションの間隔 */
+}
+
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-size: 60px;
+}
+
+.additional-text {
+  font-weight: normal;
+  text-align: center; /* 中央揃え */
+  color: #ffffff;
+  font-size: 40px;
+}
+
+#elapsedTime {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#gameArea {
+  margin-top: 20px;
+}
+
+.random-number {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  font-family:超極細ゴシック,'Arial';
+}
+
+button:hover {
+  filter: brightness(80%);
+}
+
+
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #ffffff;
+  margin: 10px auto;
+}
+
+.progress {
+  height: 100%;
+  background-color: #ffffff;
+  width: 0;
+}
+
+.progress-text {
+  text-align: center;
+  margin: 5px 0 0;
+  font-size: 24px;
+}
+
+#startButton {
+  display: block;
+  margin: 20px auto; /* スタートボタンを中央に配置 */
+}
+
+/* スライダーのトラック（横の部分）のスタイル */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 2px; /* スライダーの高さ */
+  background: white; /* スライダーの背景色 */
+}
+
+/* スライダーのハンドル（つまみ）のスタイル */
+input[type="range"]::-webkit-slider-thumb {
+  /*-webkit-appearance: none;
+  width: 10px; /* ハンドルの幅 */
+  height: 10px; /* ハンドルの高さ */
+  cursor: pointer;
+  margin-top: -7px;
+}

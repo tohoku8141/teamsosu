@@ -1,0 +1,68 @@
+body {
+  background-image: url('img/background.png');
+  background-size: cover; /* 画像をカバーするように拡大・縮小 */
+  background-repeat: no-repeat; /* 繰り返しを無効に */
+  background-position: center top; /* 画像を中央に配置 */
+  margin: 0; /* デフォルトのマージンを削除 */
+  padding: 0;
+  font-family:超極細ゴシック,'Arial';
+  font-size:24px;
+  line-height: 1;
+  color: white;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  background-color:rgba(0, 0, 0, 0.6);
+  padding: 30px 150px;
+  max-width: 100%; /* バナーの最大幅を設定 */
+  margin: 0 auto; /* 中央揃え */ }
+.navigation a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 16px 30px;
+  font-size: 25px;
+}
+.navigation a:hover {
+  color: #aaaaff;
+  font-weight: bold;
+}
+.icon {
+  margin-right: 50px; /* アイコンとナビゲーションの間隔 */
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: normal;
+  text-align: center;
+  font-size: 60px;
+}
+
+h2 {
+  font-weight: normal;
+  text-align: center; /* 中央揃え */
+  color: #ffffff;
+  font-size: 40px;
+}
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+input[type="number"] {
+  padding: 8px;
+  margin-right: 10px;
+  color: white;
+  height: 50px;
+  font-size: 40px;
+  font-family:超極細ゴシック,'Arial';
+  text-align: center;
+  background-color:rgba(0, 0, 0, 0);
+  border: 0px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

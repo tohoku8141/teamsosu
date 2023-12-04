@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ページ移動バナー</title>
+  <!-- ここに必要なCSSやスタイルのリンクを追加 -->
+  <style>
+    body {
+      background-image: url('img/background.png');
+      background-size: cover; /* 画像をカバーするように拡大・縮小 */
+      background-repeat: no-repeat; /* 繰り返しを無効に */
+      background-position: center top; /* 画像を中央に配置 */
+      margin: 0; /* デフォルトのマージンを削除 */
+      padding: 0;
+      font-family:超極細ゴシック,'Arial';
+      line-height: 1.5;
+    }
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color:rgba(0, 0, 0, 0.6);
+      padding: 30px 150px;
+      max-width: 100%; /* バナーの最大幅を設定 */
+      margin: 0 auto; /* 中央揃え */
+    }
+    .navigation a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 16px 30px;
+      font-size: 25px;
+    }
+    .navigation a:hover {
+      color: #aaaaff;
+      font-weight: bold;
+    }
+    .icon {
+      margin-right: 50px; /* アイコンとナビゲーションの間隔 */
+    }
+    .site-title {
+      font-weight: normal;
+      text-align: center; /* 中央揃え */
+      color: #ffffff;
+      font-size: 60px;
+    }
+    .additional-text {
+      font-weight: normal;
+      text-align: center; /* 中央揃え */
+      color: #ffffff;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navigation">
+  <div class="icon">
+    <img src="img/icon.png" alt="アイコン">
+  </div>
+  <!-- ナビゲーションリンクのセット -->
+  <a href="index.html">HOME</a>
+  <a href="index2.html">TEST BOT</a>
+  <a href="index3.html">TEST RTA</a>
+  <a href="index4.html">MARATHON</a>
+  <!-- 必要に応じて他のページへのリンクを追加 -->
+</div>
+<h1 class="site-title">素数雑多</h1>
+<p class="additional-text">素数的プログラムを雑に用意しました。<br>素数はあなたに緊張からの解法と安らかな睡眠を約束します。<br>このページはホームです。</p>
+<!-- ここにページのコンテンツを追加 -->
+
+</body>
+</html>

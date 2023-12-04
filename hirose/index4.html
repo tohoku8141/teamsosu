@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>素数ゲーム</title>
+  <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+<div class="navigation">
+  <div class="icon">
+    <img src="img/icon.png">
+  </div>
+  <!-- ナビゲーションリンクのセット -->
+  <a href="index.html">HOME</a>
+  <a href="index2.html">TEST BOT</a>
+  <a href="index3.html">TEST RTA</a>
+  <a href="index4.html">MARATHON</a>
+  <!-- 必要に応じて他のページへのリンクを追加 -->
+</div>
+<div class="container">
+  <h1>素数カウントマラソン</h1>
+  <h2>これは単純なゲームであり緊張対策です。</h2>
+  <div id="startSection">
+    <p>Press 'S'</p>
+  </div>
+
+  <form id="gameForm" style="display: none;">
+    <label id="instructionLabel" for="numberInput">First Prime is:</label>
+    <br>
+    <input type="number" id="numberInput" style="border: none; outline: none;">
+  </form>
+
+  <div id="result"></div>
+  <div id="timer"></div>
+  <div id="elapsedTime50" style="display: none;"></div>
+  <div id="elapsedTime100" style="display: none;"></div>
+  <div id="elapsedTime200" style="display: none;"></div>
+  <div id="elapsedTime300" style="display: none;"></div>
+  <div id="elapsedTime500" style="display: none;"></div>
+  <div id="elapsedTime1000" style="display: none;"></div>
+  <button id="restartButton" style="display: none;">最初の画面に戻る</button>
+</div>
+  <script src="script4.js" defer></script>
+</body>
+</html>
