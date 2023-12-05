@@ -70,7 +70,7 @@ button {
   color: white;
   background-color:rgba(0, 0, 0, 0.6);
   border: 1px solid white;
-  font-family:超極細ゴシック,'Arial';
+  font-family:'Arial';
 }
 
 button:hover {
