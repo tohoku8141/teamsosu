@@ -88,11 +88,17 @@ gameForm.addEventListener('submit', function(event) {
       elapsedTimeDiv1000.textContent = `No.1000 泣く一休: ${elapsedTime1000}`;
     }
 
-  } else {
+    else {
+    if (correctCount === 2) {
+      resultDiv.textContent = `Game Over!最初の素数は ${currentNumber} です。正解数: ${correctCount}`;
+    }
+    else {
+      resultDiv.textContent = `Game Over!\n${previousNumber} の次の素数は ${currentNumber} です。正解数: ${correctCount}`;
+    }
     resultDiv.textContent = `Game Over!\n${previousNumber} の次の素数は ${currentNumber} です。正解数: ${correctCount}`;
     stopTimer(); // タイマーを停止
     gameForm.style.display = 'none'; // 入力フォームを非表示にする
-    restartButton.style.display = 'block'; // 最初の画面に戻るボタンを表示する
+    }
   }
 });
 
